@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+body {
+    background-color: #1a2a3a;
+    margin:0;
+    font-size: 100%;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid #e0deee;
+}
+nav a {
+    margin:50px;
+    text-decoration: none;
+}
+#title{
+    color: #d4af37;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 400;
+}
+.link{
+    color: #ffb703;
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+.link:hover{
+    text-decoration: underline;
+}
+img{
+    border-radius: 360px;
+    margin-top: 5%;
+}
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 5%;
+}
+h2{
+    padding-bottom: 20px;
+    padding-left: 100px;
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: underline;
+    color: #faffbc;
+}
+h3{
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #faffbc;
+}
+li{
+    color:#e0deee;
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+footer{
+    padding-bottom: 0%;
+    color: #ffb703;
+    padding-top: 50px;
+    padding-left: 150px;
+    font-family: "Carlito", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: underline;
+}
