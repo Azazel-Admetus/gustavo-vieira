@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+body{
+    background-color: #1a2a3a;
+    font-size:100%;
+    margin:25px;
+}
+
+footer{
+    margin-bottom: 0%;
+    margin:25px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+h1{
+    color: #d4af37;
+    font-family:"Playfair Display", sans-serif;
+    font-weight: 500;
+    font-style:normal;
+}
+section{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-right:25px;
+    
+}
+p{
+    font-family:"Lato", sans-serif;
+    font-weight: 500;
+    font-style:normal;
+    color:#e0deee;
+    font-size: 25px;
+    margin-right: 25pxs;
+    text-align: justify;
+}
+h2{
+    font-family:"Lato", sans-serif;
+    font-weight: 500;
+    font-style:normal;
+    color:#faffbc;
+    font-size: 30px;
+    
+}
+#especifico{
+    color:#faffbc;
+    font-family: "Lato", sans-serif;
+    font-weight:500;
+    font-style:normal;
+    margin-bottom: 50px;
+}
+#pag{
+    padding:20px 150px;
+    background-color:#faffbc ;
+    border-radius:30px;
+    text-decoration: none;
+    color:#000000;
+    font-size: 30px;
+    font-family: "Carlito", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+#pag:hover{
+    background-color:#d9e292;
+    text-decoration:underline;
+}
+#email{
+    font-family:"Carlito", sans-serif;
+    font-weight: 500;
+    font-style:normal;
+    color:#ffb703;
+}
+#link{
+    font-family: "Playfair Display", serif ;
+    font-weight: 500;
+    font-style: normal;
+    color:#d4af37;
+    text-decoration:none;
+    font-size: 30px;
+}
+#link:hover{
+    text-decoration:underline;
+}
+img{
+    max-width: 500px;
+    border: solid 2px #3c0007;
+}
+#banner{
+    border:solid 2px #3c0007
+}
+.imagem{
+    border-radius:180px;
+}
+div{
+    margin:50px;
+    text-align: center;
+}
+#txt{
+    margin-top: 65px;
+}
+@media (max-width:1000px){
+    section{
+        display: flex;
+        flex-direction: column;
+    }
+}
