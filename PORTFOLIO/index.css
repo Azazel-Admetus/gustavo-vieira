@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url('fundo2.jpg');
+    position: relative;
+}
+h1{
+    text-align: center;
+    padding: 10px;
+    margin: 100px;
+    background-color: #fad1d1;
+    border:2px solid #fed0fed0 ;
+    font-family: "Zen Kaku Gothic New", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+button{
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    font-family: "Zen Kaku Gothic New", serif;
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 50px;
+    border: none;
+    font-size: 30px;
+    background-color: #fad1d1;
+    display: flex;
+}
+div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+}
+button:hover{
+    background-color: #f5a9a9;
+}
+#gato{
+    background-image: url(gato.jpeg);
+    max-width: 1000px;
+    max-height: 1000px;
+    position: absolute;
+    left: 600px;
+    top: 200px;
+    display: none;
+}
+#Gato{
+    background-image: url(Gato.png);
+    max-width: 1000px;
+    max-height: 1000px;
+    position: absolute;
+    left: 600px;
+    top: 200px;
+    display: none;
+    transition:left 1.5s ease-in-out, top 1.5s ease-in-out;
+}
