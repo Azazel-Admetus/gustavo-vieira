@@ -1,4 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap');
+:root{
+    --fonte_principal: "Playfair Display", serif;
+    --fonte_secundaria: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --cor_primaria: #1a2a3a;
+    --cor_destaque:#d4af37;
+    --cor_destaque2: #ffb703;
+    --cor_secundaria: #faffbc;
+    --cor_terciaria: #e0deee;
+}
+
 *{
     margin: 0;
     padding: 0;
