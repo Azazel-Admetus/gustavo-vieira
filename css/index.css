@@ -7,6 +7,7 @@
     --cor_destaque2: #ffb703;
     --cor_secundaria: #faffbc;
     --cor_terciaria: #e0deee;
+    --cor_quarta: #0f1c27;
 }
 
 *{
@@ -14,15 +15,17 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
+/* body{
     background-color: var(--cor_primaria);
-}
+} */
+/* estilizando o header */
 header{
     display: flex;
     flex-direction: column ;
     flex-wrap: wrap;
     align-items: center;
     padding: 5%;
+    background-color: var(--cor_primaria);
 }
 header h1{
     font-family: var(--fonte_principal);
@@ -44,4 +47,87 @@ header nav a{
 }
 header nav span{
     color: var(--cor_secundaria);
+}
+/* vamos estilizar agora a primeira seção */
+#inicio{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-around;
+    gap: 40px;
+    padding: 20px;
+    background-color: var(--cor_primaria);
+}
+#inicio img{
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 100%;
+    object-fit: cover;
+    border: solid 4px var(--cor_terciaria);
+}
+#inicio div:nth-child(2){
+    max-width: 600px;
+}
+#inicio h1{
+    margin-bottom:15px;
+    font-family:var(--fonte_principal);
+    color:var(--cor_secundaria);
+    font-size: 25px;
+    text-align: center;
+}
+#inicio p{
+    line-height: 1.6;
+    text-align: justify;
+    font-size: 18px;
+    font-family: var(--fonte_secundaria);
+    color: var(--cor_terciaria);
+}
+/* vamos para o segundo sectionnmmnnnnnnnnnnnnn */
+#about{
+    background-color: var(--cor_secundaria);
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#about h2{
+    font-family: var(--fonte_secundaria);
+    color: var(--cor_primaria);
+    font-size: 25px;
+}
+#about p{
+    font-family: var(--fonte_secundaria);
+    color: var(--cor_primaria);
+    font-size: 18px;
+    font-weight: 500;
+    text-align: justify;
+    margin-top: 10px;
+}
+#about h3{
+    font-family: var(--fonte_principal);
+    color:var(--cor_primaria);
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#about ul li a{
+    font-family: var(--fonte_secundaria);
+    font-size: 19px;
+}
+#about #lyup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+#about #lyup img{
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 20%;
+    object-fit: cover;
+    margin-left: 20px;
+}
+#about #lyup div:nth-child(1){
+    text-align: justify;
 }
