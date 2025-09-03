@@ -44,6 +44,24 @@ header nav a{
     color: var(--cor_secundaria);
     margin-top:10px;
     text-decoration: none;
+    position: relative;
+    font-weight: bold;
+}
+header nav a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--cor_terciaria);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+header nav a:hover::after{
+    transform: scaleX(1);
+    transform-origin: left ;
 }
 header nav span{
     color: var(--cor_secundaria);
