@@ -52,6 +52,10 @@
         </div>
             </section>
     <section id="projetos">
+        <div class="projetos-flex">
+            <h2 class="titulo-projetos">Meus Projetos</h2>
+            <div class="cards-container"></div>
+        </div>
         <!-- <a href="#">
             <div class="card">
                 <img src="#" alt="imagem do projeto">
@@ -120,10 +124,16 @@
             link: "html/engenium.html"
         }
     ];
-    const section = document.getElementById("projetos");
+    const section = document.getElementById('projetos');
+    let current = 0;
+    let cardsContainer = document.createElement('div');
+    cardsContainer.className = 'cards-container';
+    section.appendChild(cardsContainer);
 
-    projetos.forEach(p => {
-        const a = document.createElement("a");
+// Cria os cards só uma vez
+let cards = [];
+    projetos.forEach((p, i) => {
+        const a = document.createElement('a');
         a.href = p.link;
 
         const card = document.createElement("div");
@@ -134,8 +144,8 @@
         img.alt = p.titulo;
 
         const h2 = document.createElement("h2");
-        h2.textContent= p.titulo;
-    
+        h2.textContent = p.titulo;
+
         const pDesc = document.createElement("p");
         pDesc.textContent = p.descricao;
 
@@ -143,8 +153,44 @@
         card.appendChild(h2);
         card.appendChild(pDesc);
         a.appendChild(card);
-        section.appendChild(a);
+        cardsContainer.appendChild(a);
+        cards.push(card);
     });
+
+// Função para atualizar as classes dos cards
+    function updateCarousel() {
+        cards.forEach((card, i) => {
+            card.classList.remove('central', 'left', 'right', 'hidden');
+            if (i === current) {
+                card.classList.add('central');
+            } else if (i === (current - 1 + projetos.length) % projetos.length) {
+                card.classList.add('left');
+            } else if (i === (current + 1) % projetos.length) {
+                card.classList.add('right');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+// Troca automática 
+    setInterval(() => {
+        current = (current + 1) % projetos.length;
+        updateCarousel();
+    }, 4000);
+
+    updateCarousel();
+    
+    section.addEventListener("wheel", (e) => {
+        if(e.deltaY > 0){
+            current = (current + 1) % projetos.length;
+            updateCarousel();
+        }else if(e.deltaY < 0){
+            current = (current - 1 + projetos.length) % projetos.length;
+            updateCarousel();
+        }
+        e.preventDefault();   
+    }, { passive: false});
 </script>
 </body>
 </html>
