@@ -189,10 +189,10 @@ header nav span{
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around; /* ou space-evenly para mais espaço */
+    justify-content: space-around;
     align-items: center;
-    gap: 32px; /* opcional, para espaçamento extra */
-    padding: 0 5vw; /* opcional, para não grudar nas bordas */
+    gap: 32px;
+    padding: 0 5vw; 
 }
 .titulo-projetos {
     width: 100%;
@@ -290,4 +290,115 @@ header nav span{
     opacity: 0;
     z-index: 1;
     pointer-events: none;
+}
+/* vamos estilizar a section trabalho */
+#trabalho{
+    background:
+        url("https://www.transparenttextures.com/patterns/blizzard.png"),
+        var(--cor_quarta);
+    display: flex;
+    flex-direction: column;
+    flex-direction: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+#trabalho h2{
+    font-family: var(--fonte_principal);
+    color: var(--cor_terciaria);
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+#trabalho p{
+    font-family: var(--fonte_secundaria);
+    color: var(--cor_secundaria);
+    font-size: 18px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+#trabalho a {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, var(--cor_destaque), var(--cor_destaque2));
+  color: var(--cor_quarta);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#trabalho a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+/* agora vamos estilizar a section das minhas skills */
+#skills{
+    text-align: center;
+    padding: 40px 20px;
+    background:
+        url("https://www.transparenttextures.com/patterns/black-linen.png"),
+        var(--cor_secundaria);
+}
+#skills h2{
+    font-family: var(--fonte_principal);
+    color: var(--cor_primaria);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+
+}
+#skills #container{
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+#soft-skills ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+#soft-skills li{
+    margin-bottom:15px;
+    font-size: 1.3rem;
+    font-family: var(--fonte_secundaria);
+    color: var(--cor_primaria);
+}
+#hard-skills{
+    display: inline-block;
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+}
+#hard-skills i{
+    font-size: 80px;
+    color: var(--cor_quarta);
+}
+/* bora estilizar a última section */
+#contato{
+        background:
+        url("https://www.transparenttextures.com/patterns/black-linen.png"),
+        var(--cor_secundaria);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+#contato h2{
+    font-family: var(--fonte_principal);
+    color: var(--cor_primaria);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+#container-contacts{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+#container-contacts img{
+    width: 60px;
+    height: 60px;
+    margin: 0 15px;
+    transition: transform 0.3s ease;
 }
