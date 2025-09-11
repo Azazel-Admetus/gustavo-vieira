@@ -15,8 +15,7 @@
         <header>
             <h1 class="titulo" id="tituloDinamico">Seja-bem vindo ao SolumChat. Tire suas dúvidas sobre física</h1>
         </header>
-        <section id="chatMessagens">
-        </section>
+        <section id="chatMessagens"></section>
     </main>
     <footer>
         <form id="formChat">
@@ -24,5 +23,89 @@
             <button type="submit">Enviar</button>
         </form>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+    <script>
+        const chatMensagens = document.getElementById("chatMessagens");
+        const formChat = document.getElementById("formChat");
+        const inputMensagem = document.getElementById("inputMensagem");
+        const btnLimpar = document.getElementById("btnLimpar");
+
+        let dicionario = [];
+        let fuse;
+
+        // Carrega o JSON com perguntas e respostas
+        fetch("../js/JSON/dados.json")
+            .then(response => response.json())
+            .then(data => {
+                dicionario = data;
+                fuse = new Fuse(dicionario, {
+                    keys: ['pergunta'],
+                    threshold: 0.4
+                });
+            });
+
+        // Função para adicionar mensagens ao chat
+        function adicionarMensagem(texto, tipo){
+            const div = document.createElement("div");
+            div.classList.add("mensagem", tipo);
+
+            const img = document.createElement("img");
+            img.classList.add("avatar");
+            img.src = tipo === "solum" ? "avatar_solum.png" : "avatar_usuario.png";
+            img.alt = tipo === "solum" ? "Avatar Solum" : "Avatar Usuário";
+
+            const p = document.createElement("p");
+            p.classList.add("texto");
+            p.textContent = texto;
+
+            div.appendChild(img);
+            div.appendChild(p);
+            chatMensagens.appendChild(div);
+
+            chatMensagens.scrollTop = chatMensagens.scrollHeight;
+        }
+
+        // Função para buscar resposta
+        function buscarResposta(userQuest) {
+            if (!fuse) return "Ainda estou carregando meu conhecimento...";
+
+            const resultado = fuse.search(userQuest);
+            if (resultado.length > 0) {
+                return resultado[0].item.resposta;
+            }
+            return "Desculpe, não consegui entender sua pergunta. Tente reformular.";
+        }
+
+        // Falar com voz
+        function falar(texto) {
+            let msg = new SpeechSynthesisUtterance(texto);
+            msg.lang = "pt-BR";
+            msg.rate = 1.1;
+            msg.pitch = 1;
+            window.speechSynthesis.speak(msg);
+        }
+
+        // Envio de mensagem
+        formChat.addEventListener("submit", function(e){
+            e.preventDefault();
+            const msg = inputMensagem.value.trim();
+            if (!msg) return;
+            adicionarMensagem(msg, "usuario");
+
+            // Busca resposta
+            let resposta = buscarResposta(msg);
+            setTimeout(() =>{
+                adicionarMensagem(resposta, "solum");
+                falar(resposta);
+            }, 500);
+
+            inputMensagem.value = "";
+        });
+
+        // Botão limpar
+        btnLimpar.addEventListener("click", () =>{
+            chatMensagens.innerHTML = "";
+        });
+    </script>
 </body>
 </html>
