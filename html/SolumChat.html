@@ -29,23 +29,31 @@
         const formChat = document.getElementById("formChat");
         const inputMensagem = document.getElementById("inputMensagem");
         const btnLimpar = document.getElementById("btnLimpar");
+        const tituloDinamico = document.getElementById("tituloDinamico");
 
-        let dicionario = [];
+        let todosOsDados = [];
         let fuse;
 
-        // Carrega o JSON com perguntas e respostas
-        fetch("../js/JSON/dados.json")
-            .then(response => response.json())
-            .then(data => {
-                dicionario = data;
-                fuse = new Fuse(dicionario, {
-                    keys: ['pergunta'],
-                    threshold: 0.4
-                });
-            });
+        // Carrega todos os arquivos JSON de temas
+        const temas = ["mecanica", "termologia", "ondulatoria", "optica", "eletromagnetismo", "biografia"];
 
-        // Função para adicionar mensagens ao chat
-        function adicionarMensagem(texto, tipo){
+        async function carregarTodosOsTemas() {
+            for (const tema of temas) {
+                const response = await fetch(`../js/JSON/${tema}.json`);
+                const dados = await response.json();
+                todosOsDados.push(...dados.map(d => ({ ...d, tema })));
+            }
+
+            fuse = new Fuse(todosOsDados, {
+                keys: ['perguntas'],
+                threshold: 0.4
+            });
+        }
+
+        carregarTodosOsTemas();
+
+        // Função para adicionar mensagens
+        function adicionarMensagem(texto, tipo) {
             const div = document.createElement("div");
             div.classList.add("mensagem", tipo);
 
@@ -65,20 +73,21 @@
             chatMensagens.scrollTop = chatMensagens.scrollHeight;
         }
 
-        // Função para buscar resposta
+        // Função para buscar resposta em todos os temas
         function buscarResposta(userQuest) {
             if (!fuse) return "Ainda estou carregando meu conhecimento...";
 
             const resultado = fuse.search(userQuest);
             if (resultado.length > 0) {
-                return resultado[0].item.resposta;
+                const melhor = resultado[0].item;
+                return `[${melhor.tema.toUpperCase()}]: ${melhor.resposta}`;
             }
             return "Desculpe, não consegui entender sua pergunta. Tente reformular.";
         }
 
         // Falar com voz
         function falar(texto) {
-            let msg = new SpeechSynthesisUtterance(texto);
+            const msg = new SpeechSynthesisUtterance(texto);
             msg.lang = "pt-BR";
             msg.rate = 1.1;
             msg.pitch = 1;
@@ -86,36 +95,30 @@
         }
 
         // Botão limpar
-        btnLimpar.addEventListener("click", () =>{
-            chatMensagens.innerHTML = "";
-        });
-
-        const tituloDinamico = document.getElementById("tituloDinamico");
+        btnLimpar.addEventListener("click", () => chatMensagens.innerHTML = "");
 
         // Envio de mensagem
-        formChat.addEventListener("submit", function(e){
+        formChat.addEventListener("submit", function(e) {
             e.preventDefault();
             const msg = inputMensagem.value.trim();
             if (!msg) return;
-        
-            // Esconde o título inicial se ainda visível
+
             if (tituloDinamico && !tituloDinamico.classList.contains("hidden")) {
                 tituloDinamico.classList.add("hidden");
-                setTimeout(() => tituloDinamico.remove(), 900); // remove do DOM após animação
+                setTimeout(() => tituloDinamico.remove(), 900);
             }
-        
+
             adicionarMensagem(msg, "usuario");
-        
+
             // Busca resposta
-            let resposta = buscarResposta(msg);
-            setTimeout(() =>{
+            const resposta = buscarResposta(msg);
+            setTimeout(() => {
                 adicionarMensagem(resposta, "solum");
                 falar(resposta);
             }, 500);
-        
+
             inputMensagem.value = "";
         });
-
     </script>
 </body>
 </html>
