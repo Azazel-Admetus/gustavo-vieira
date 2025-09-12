@@ -93,6 +93,29 @@
             msg.pitch = 1;
             window.speechSynthesis.speak(msg);
         }
+                // Array de mensagens dinâmicas
+        const mensagensDinamicas = [
+            "Seja bem-vindo ao SolumChat! Tire suas dúvidas sobre física.",
+            "Prepare-se para explorar os mistérios da física com o SolumChat!",
+            "Olá! Pergunte qualquer coisa sobre física e vamos descobrir juntos.",
+            "Curioso sobre o mundo? O SolumChat está pronto para te ajudar!",
+            "Entre no mundo da física clássica com o SolumChat!",
+            "Mecânica, Termologia, Óptica, Eletromagnetismo, Ondulatória... está com dúvidas nesses temas? Pergunte ao SolumChat!",
+            "Quer saber mais sobre físicos famosos e suas descobertas? O SolumChat tem as respostas!",
+            "O SolumChat é seu assistente virtual educativo focado em física clássica. Pergunte à vontade!",
+            "Física no dia a dia? O SolumChat explica para você!",
+        ];
+
+        // Função para exibir uma mensagem aleatória
+        function exibirMensagemDinamica() {
+            if (tituloDinamico) {
+                const indice = Math.floor(Math.random() * mensagensDinamicas.length);
+                tituloDinamico.textContent = mensagensDinamicas[indice];
+            }
+        }
+
+        // Chama a função ao carregar a página
+        exibirMensagemDinamica();
 
         // Botão limpar
         btnLimpar.addEventListener("click", () => chatMensagens.innerHTML = "");
