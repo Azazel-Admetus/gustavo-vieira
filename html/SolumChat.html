@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SolumChat é seu assistente virtual educativo de Física Clássica. Pergunte sobre Mecânica, Termologia, Óptica, Ondulatória, Eletromagnetismo e mais!">
+    <meta name="keywords" content="Física, Mecânica, Termologia, Óptica, Eletromagnetismo, Chat, SolumChat, Aprender Física">
+    <meta name="author" content="Azazel Admetus">
+    <link rel="icon" href="../image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/SolumChat.css">
-    <title>SolumChat</title>
+    <title>SolumChat - Tire suas dúvidas sobre Física Clássica</title>
 </head>
 <body>
     <header>
@@ -56,20 +60,20 @@
     function adicionarMensagem(texto, tipo) {
         const div = document.createElement("div");
         div.classList.add("mensagem", tipo);
-    
+
         const img = document.createElement("img");
         img.classList.add("avatar");
         img.src = tipo === "solum" ? "../image/AvatarSolum.png" : "../image/AvatarUser.png";
         img.alt = tipo === "solum" ? "Avatar Solum" : "Avatar Usuário";
-    
+
         const p = document.createElement("p");
         p.classList.add("texto");
         p.textContent = texto;
-    
+
         div.appendChild(img);
         div.appendChild(p);
         chatMensagens.appendChild(div);
-    
+
         // ----------------------------
         // Scroll inteligente
         // ----------------------------
