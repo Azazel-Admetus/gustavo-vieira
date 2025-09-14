@@ -53,25 +53,32 @@
         carregarTodosOsTemas();
 
         // Função para adicionar mensagens
-        function adicionarMensagem(texto, tipo) {
-            const div = document.createElement("div");
-            div.classList.add("mensagem", tipo);
-
-            const img = document.createElement("img");
-            img.classList.add("avatar");
-            img.src = tipo === "solum" ? "../image/AvatarSolum.png" : "../image/AvatarUser.png";
-            img.alt = tipo === "solum" ? "Avatar Solum" : "Avatar Usuário";
-
-            const p = document.createElement("p");
-            p.classList.add("texto");
-            p.textContent = texto;
-
-            div.appendChild(img);
-            div.appendChild(p);
-            chatMensagens.appendChild(div);
-
+    function adicionarMensagem(texto, tipo) {
+        const div = document.createElement("div");
+        div.classList.add("mensagem", tipo);
+    
+        const img = document.createElement("img");
+        img.classList.add("avatar");
+        img.src = tipo === "solum" ? "../image/AvatarSolum.png" : "../image/AvatarUser.png";
+        img.alt = tipo === "solum" ? "Avatar Solum" : "Avatar Usuário";
+    
+        const p = document.createElement("p");
+        p.classList.add("texto");
+        p.textContent = texto;
+    
+        div.appendChild(img);
+        div.appendChild(p);
+        chatMensagens.appendChild(div);
+    
+        // ----------------------------
+        // Scroll inteligente
+        // ----------------------------
+        const distanciaDoFim = chatMensagens.scrollHeight - chatMensagens.scrollTop - chatMensagens.clientHeight;
+        const estaPertoDoFim = distanciaDoFim < 50; // tolerância de 50px
+        if (estaPertoDoFim) {
             chatMensagens.scrollTop = chatMensagens.scrollHeight;
         }
+}
 
         // Função para buscar resposta em todos os temas
         function buscarResposta(userQuest) {
