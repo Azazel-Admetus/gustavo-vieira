@@ -1,107 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-body{
-    background-color: #1a2a3a;
-    font-size:100%;
-    margin:25px;
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --cor-verde: #4a5841;
+    --cor-bege: #dbcdac;
+    --fonte-main: "Exo 2", sans-serif;
 }
 
-footer{
-    margin-bottom: 0%;
-    margin:25px;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-h1{
-    color: #d4af37;
-    font-family:"Playfair Display", sans-serif;
-    font-weight: 500;
-    font-style:normal;
-}
-section{
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    padding-right:25px;
-    
-}
-p{
-    font-family:"Lato", sans-serif;
-    font-weight: 500;
-    font-style:normal;
-    color:#e0deee;
-    font-size: 25px;
-    margin-right: 25pxs;
-    text-align: justify;
-}
-h2{
-    font-family:"Lato", sans-serif;
-    font-weight: 500;
-    font-style:normal;
-    color:#faffbc;
-    font-size: 30px;
-    
-}
-#especifico{
-    color:#faffbc;
-    font-family: "Lato", sans-serif;
-    font-weight:500;
-    font-style:normal;
-    margin-bottom: 50px;
-}
-#pag{
-    padding:20px 150px;
-    background-color:#faffbc ;
-    border-radius:30px;
-    text-decoration: none;
-    color:#000000;
-    font-size: 30px;
-    font-family: "Carlito", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-}
-#pag:hover{
-    background-color:#d9e292;
-    text-decoration:underline;
-}
-#email{
-    font-family:"Carlito", sans-serif;
-    font-weight: 500;
-    font-style:normal;
-    color:#ffb703;
-}
-#link{
-    font-family: "Playfair Display", serif ;
-    font-weight: 500;
-    font-style: normal;
-    color:#d4af37;
-    text-decoration:none;
-    font-size: 30px;
-}
-#link:hover{
-    text-decoration:underline;
-}
-img{
-    max-width: 500px;
-    border: solid 2px #3c0007;
-}
-#banner{
-    border:solid 2px #3c0007
-}
-.imagem{
-    border-radius:180px;
-}
-div{
-    margin:50px;
+header {
+    background-color: var(--cor-verde);
+    padding: 1rem;
     text-align: center;
 }
-#txt{
-    margin-top: 65px;
+#Logo {
+    max-width: 160px;
+    width: 100%;
 }
-@media (max-width:1000px){
-    section{
-        display: flex;
-        flex-direction: column;
-    }
+#introducao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+#introducao h1 {
+    flex-basis: 100%;
+    font-family: var(--fonte-main);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--cor-verde);
+    margin-bottom: 1rem;
+}
+section {
+    margin: 3rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.texto {
+    flex: 1;
+    font-family: var(--fonte-main);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.imagem, #banner {
+    flex: 1;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+h2 {
+    font-family: var(--fonte-main);
+    font-size: 1.6rem;
+    color: var(--cor-verde);
+    margin-bottom: 1rem;
+    border-left: 6px solid var(--cor-verde);
+    padding-left: 10px;
+}
+#pag {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--cor-verde);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+#pag:hover {
+    background-color: #3a4635;
+}
+footer {
+    background-color: var(--cor-verde);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-family: var(--fonte-main);
+}
+
+footer a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
 }

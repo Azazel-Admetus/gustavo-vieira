@@ -3,54 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylecaelum.css">
-    <title>Meus projetos - Projeto Caelum</title>
+    <link rel="stylesheet" href="../css/stylecaelum.css">
+    <title>Projeto Caelum</title>
 </head>
 <body>
     <header>
-        <h1>PROJETO CAELUM</h1>
+        <img src="../image/ProjetoCaelumLogo.png" alt="Logo do Projeto Caelum" id="Logo">
     </header>
-    <main>
-        <section id="secion1">
-            <div>
-                <p id="txt1">Desenvolvido por estudantes, o Projeto Caelum visa criar um robô interativo e capaz de se locomover de forma independente. O objetivo desse projeto é atrair e incentivar os estudantes a serem mais criativos e a tentarem criar projetos complexos.</p>
-            </div>
-            <div>
-                <img class="imagem" src="injob.jpeg" alt="">
-            </div>
-        </section>
-        <section>
-            <div>
-                <img class="imagem" src="nojob.jpeg" alt="">
-            </div>
-            <div>
-                <p>O projeto nasceu da insatisfação do estudante, criador e líder do projeto, Gustavo Vieira, com a simplicidade dos projetos realizados na eletiva de Robótica de sua escola. Segundo seu pensamento, os estudantes deveriam pensar mais em desenvolver projetos mais complexos, por mais difícil que possa parecer. Por tal motivo, ele escolheu criar um robô que anda e fala, afinal, que estudante ousaria tentar criar um robô capaz de andar e falar? Isso não é algo que necessite de muito investimento? Não é algo extremamente difícil? Para Gustavo essas perguntas não eram as mais importantes, tudo o que ele pensava era em como faria isso dar certo.   </p>
-            </div>
-        </section>
-        <section>
-           <div>
-                <p id="txt"> Esse projeto não foi criado para ser apresentado em alguma feira ou vendido a alguma empresa, ele foi criado estritamente com o propósito de incentivar e mostrar aos demais estudantes que nada pode ser tão difícil que não seja possível criar. Porém, em uma determinada aula da eletiva, a professora Rosana avisou seus estudantes sobre a 1ª Feira Maker que iria ocorrer em Ouro Preto do Oeste e que a escola recebeu a oportunidade de participar. Gustavo viu isso como uma oportunidade e começou a preparar o protótipo para ser apresentado. Assim, junto aos estudantes Pedro Venâncio, Gabryel, João Vitor, Antony, Vladson e Victor, começaram a trabalhar no protótipo. </p>
-           </div> 
-           <div class="item">
-            <h2>PROTÓTIPO</h2>
-            <p>Para o protótipo, queriam apresentar um robô capaz de responder perguntas por áudio e andar. A divisão das tarefas foi feita da seguinte forma: na programação, por ser o único com conhecimento necessário, Gustavo ficou encarregado de fazer a Inteligência Artificial e preparar o código para que o robô fosse capaz de andar. Para o design, por ser o único que possui conhecimento na área, Pedro Venâncio ficou encarregado, sua missão era pensar em um design que não fosse padrão. Os demais, Gabryel, Antony, Vladson, Victor e João Victor, eram responsáveis por nos ajudar na montagem do robô. Também atuavam como “patrocinadores”, ajudando financeiramente quando fosse preciso. Por fim, por ser a mais instruída na área da robótica, a professora Rosana nos ajudou a fazer ele andar usando Arduino, motores, módulo bluetooth e drivers. Com a ajuda de todos, concluímos o protótipo a tempo para a segunda fase.</p>
-           </div>
-        </section>
-        <section>
-            <div>
-                <img id="banner" src="banner.jpeg" alt="">
 
+    <main>
+        <!-- Seção de introdução -->
+        <section id="introducao">
+            <h1>Conheça o Projeto Caelum</h1>
+            <div class="texto">
+                <p>Desenvolvido por estudantes, o projeto visa criar um robô interativo capaz de se locomover de forma autônoma. O objetivo do projeto é servir de inspiração para os estudantes, e ser o estopim do início de uma geração de jovens capazes de tomarem iniciativas próprias e de criar e desenvolver projetos complexos que tenham impacto real na sociedade. Temos como objetivo trabalhar as capacidades mais desejadas no mercado de trabalho nos dias de hoje. A capacidade de resolver problemas, trabalhar em equipe, liderança e criatividade, além de raciocínio lógico</p>
+            </div>
+            <div>
+                <img class="imagem" src="injob.jpeg" alt="Protótipo inicial do robô Caelum">
+            </div>
+        </section>
+
+        <!-- Seção sobre a motivação -->
+        <section id="motivacao">
+            <div>
+                <img class="imagem" src="nojob.jpeg" alt="Estudantes trabalhando no projeto Caelum">
+            </div>
+            <div class="texto">
+                <p>O projeto nasceu da iniciativa do estudante Gustavo devido a insatisfação sentida quando participou da eletiva de robótica. Os alunos tinham a disposição peças incríveis para serem usadas em projetos, e sequer davam importância. Percebeu-se que muitos não criavam projetos por parecerem serem complexos demais. Em meio a esse cenário, o estudante Gustavo se perguntou: "Por que não criar um robô que anda e fala usando uma inteligência artificial própria?". E simplesmente com base nessa iniciativa, sem pensar no quão complexo é o funcionamento de Inteligências Artificiais, ele criou um grupo, e iniciou o planejamento do robô. De lá para cá o projeto foi reformulado e aprimorado, grande parte dos estudantes que estavam na equipe no começo, já não estavam mais. O projeto ganhou um novo rosto e propósito.</p>
+            </div>
+        </section>
+
+        <!-- Seção sobre a história -->
+        <section id="historia">
+            <div class="texto">
+                <p>Desde o início, o robô não foi desenvolvido com a finalidade de ser apresentado em feiras de robótica e nem de ser vendido a empresas. Desde o início, o projeto foi desenvolvido visando se tornar inspiração para os novos estudantes. Criar uma geração de jovens criativos e com muito interesse em tecnologia, se tornou o objetivo maior do projeto</p>
             </div>
             <div class="item">
-                <p id="especifico">Caso queira ver o código, clique abaixo para ir ao meu repositório.</p>
-                <a id="pag" href="https://github.com/Azazel-Admetus/projeto_caelum">CLIQUE AQUI</a>
+                <h2>PROTÓTIPO</h2>
+                <p class="texto">Com o tempo, pesquisando mais sobre e conhecendo mais a cerca de Inteligência Artificial, a versão do primeiro protótipo foi sendo modulada. No primeiro protótipo, a ideia era modelar uma estrutura em 3D, criar um aplicativo para controle da locomoção do robô, e desenvolver o algoritmo de perguntas e respostas previamente definidas. Portanto, para o primeiro protótipo, decidimos criar um robô capaz de andar e falar, mesmo que não houvesse inteligência artificial, ainda havia interação</p>
+            </div>
+        </section>
+
+        <!-- Seção final com repositório -->
+        <section id="repositorio">
+            <div>
+                <img id="banner" src="banner.jpeg" alt="Banner do Projeto Caelum">
+            </div>
+            <div class="item">
+                <p id="especifico">Quer ver o código? Clique abaixo para acessar o repositório:</p>
+                <a id="pag" href="https://github.com/Azazel-Admetus/projeto_caelum" target="_blank">CLIQUE AQUI</a>
             </div>
         </section>
     </main>
+
     <footer>
-        <p id="email">solumbasileus@gmail.com</P>
+        <p id="email">solumbasileus@gmail.com</p>
         <a id="link" href="index.html">GUSTAVO VIEIRA</a>
     </footer>
-    
 </body>
 </html>
