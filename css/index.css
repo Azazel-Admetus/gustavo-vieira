@@ -178,10 +178,10 @@ header nav span{
     flex: 1 0 auto;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding: 0;
-    margin:0;
+    padding: 40px 0;
+    gap: 20px;
     overflow: hidden;
     position: relative; 
 }
@@ -206,7 +206,7 @@ header nav span{
     position: relative;
     z-index: 10;
     overflow: hidden;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     font-size: 2.5re;
 }
 .titulo-projetos::after {
@@ -220,16 +220,6 @@ header nav span{
 }
 @keyframes shine {
     100% { left: 100%; }
-}
-#projetos {
-    min-height: 400px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 0;
 }
 
 .cards-container {
@@ -536,7 +526,23 @@ header nav span{
         max-width: 150px;
         max-height: 150px;
     }
-
+    .projetos-flex {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 2vw;
+    }
+    .titulo-projetos{
+        margin-bottom: 2px;
+    }
+    #projetos{
+        flex-direction: column;
+        margin-top: 0;
+        gap: 0;
+        padding: 20px 0 10px 0;
+    }
+    .cards-container {
+        min-height: 180px;
+    }
     #projetos .card {
         width: 180px;
         height: 260px;
@@ -575,7 +581,23 @@ header nav span{
     #trabalho h2, #skills h2, #contato h2 {
         font-size: 2rem;
     }
-
+    .projetos-flex{
+        flex-direction: column;
+        gap: 6px;
+        padding: 0 1vw;
+    }
+    .titulo-projetos{
+        margin-bottom: 0;
+    }
+    #projetos{
+        flex-direction: column;
+        margin-top: 0;
+        gap: 0;
+        padding: 12px 0 6px 0;
+    }
+    .cards-container {
+        min-height: 120px;
+    }
     #projetos .card {
         width: 150px;
         height: 220px;
@@ -624,7 +646,23 @@ header nav span{
         max-width: 200px;
         max-height: 200px;
     }
-
+    .projetos-flex{
+        flex-direction: column;
+        gap: 4px;
+        padding: 0 1vw;
+    }
+    .titulo-projetos{
+        margin-bottom: 0;
+    }
+    #projetos{
+        flex-direction: column;
+        margin-top: 0;
+        gap: 0;
+        padding: 8px 0 4px 0;
+    }
+    .cards-container {
+        min-height: 80px;
+    }
     #projetos .card {
         width: 130px;
         height: 190px;
@@ -658,7 +696,7 @@ header nav span{
     }
 
     #skills #container {
-        gap: 20px;
+        gap: 10px;
     }
 
     #about #lyup img {
