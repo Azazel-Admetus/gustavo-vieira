@@ -55,7 +55,7 @@ footer {
     box-sizing: border-box;
 }
 /* Chat ajustado para não colidir com o rodapé */
-#chatMessagens {
+#chatMensagens {
     flex: 1;
     padding: 20px;
     padding-bottom: 100px; /* espaço pro input fixo */
