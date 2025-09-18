@@ -45,15 +45,36 @@
                 "Essa questão desperta minha mente, mas sinto que precisarei caminhar por mais tempo no caminho da sabedoria para se tornar ainda mais digno de lhe entregar uma resposta mais completa. ",
             ];
         }
-        random(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
-        formatResponse(userInput, rawResponse=null){
-            const lower = userInput.toLowerCase();
-            if(rawResponse) return `${this.random(this.introPhrases)} ${rawResponse}`;
-            if(this.identityTriggers.some(t => lower.includes(t)))
-                return `${this.random(this.introPhrases)} Minha presença não é ilusão. ${this.random(this.fallbacks)}`;
-            return this.random(this.fallbacks);
-        }
+
+    random(arr){ 
+        return arr[Math.floor(Math.random()*arr.length)]; 
     }
+
+    formatResponse(userInput, rawResponse=null, tema=null){
+        const lower = userInput.toLowerCase();
+
+        // Se o usuário mencionar a persona
+        const falarPersona = this.identityTriggers.some(t => lower.includes(t)) 
+            ? this.random(this.introPhrases) + " "
+            : "";
+
+        // Se temos resposta base, adiciona contexto por tema
+        if(rawResponse) {
+            let respostaComContexto = rawResponse;
+
+            // Exemplo: pequenas dicas por tema
+            if(tema === "mecanica") respostaComContexto += "\n💡 Dica: Lembre-se das Leis de Newton ao aplicar essa resposta.";
+            if(tema === "termologia") respostaComContexto += "\n💡 Dica: Observe os conceitos de calor e temperatura.";
+            // outros temas podem ser adicionados aqui...
+
+            return falarPersona + respostaComContexto;
+        }
+
+        // Se não houver resposta, mostrar fallback
+        return falarPersona + this.random(this.fallbacks);
+    }
+}
+
     const solumFormatter = new SolumFormatter();
 
     /* ========== Chat Setup ========== */
@@ -68,7 +89,7 @@
     
     async function carregarTodosOsTemas() {
         for (const tema of temas) {
-            // 1️⃣ Carregar JSON
+            // Carregar JSON
             try {
                 const resJson = await fetch(`../js/JSON/${tema}.json`);
                 const dadosJson = await resJson.json();
@@ -77,7 +98,7 @@
                 console.warn(`Erro carregando JSON do tema ${tema}:`, e);
             }
 
-            // 2️⃣ Carregar CSV com três colunas: pergunta,resposta,tags
+            // Carregar CSV com três colunas: pergunta,resposta,tags
             try {
                 const resCsv = await fetch(`../js/CSV/${tema}.csv`);
                 const textoCsv = await resCsv.text();
@@ -90,7 +111,7 @@
                             perguntas: [pergunta.trim()],
                             resposta: resposta.trim(),
                             tema,
-                            tags: tags ? tags.split(";").map(t => t.trim()) : []
+                            tags: tags ? tags.split(",").map(t => t.trim()) : []
                         });
                     }
                 });
@@ -101,28 +122,32 @@
 
         return todosOsDados;
     }
-
-
-
-    /* Fuse.js-like search simplificado */
+    let fuse;
+    function inicializarFuse(){
+        fuse = new Fuse(todosOsDados, {
+            keys: ['perguntas', 'tags'],
+            includeScore:true,
+            threshold: 0.4,
+            ignoreLocation: true
+        })
+    }
     function buscarResposta(userInput) {
-        const lower = userInput.toLowerCase();
+    if(!fuse) inicializarFuse();
+    
+    const resultados = fuse.search(userInput);
 
-        for (const item of todosOsDados) {
-            // 1️⃣ Verifica se alguma pergunta bate
-            if (item.perguntas.some(p => lower.includes(p.toLowerCase()))) {
-                return `[${item.tema}]: ${item.resposta}`;
-            }
-
-            // 2️⃣ Se não bateu, verifica tags
-            if (item.tags && item.tags.some(tag => lower.includes(tag.toLowerCase()))) {
-                return `[${item.tema}]: ${item.resposta}`;
-            }
-        }
-
-        return null;
+    if(resultados.length > 0){
+        const melhor = resultados[0].item;
+        return `[${melhor.tema}]: ${melhor.resposta}`;
     }
 
+    return null;  // fallback se não achar nada
+}
+
+    carregarTodosOsTemas().then(() => {
+        inicializarFuse();
+        console.log("Fuse.js inicializado com todos os dados.");
+    });
 
     /* Memória simples */
     let memoriaChat = JSON.parse(localStorage.getItem("memoriaChat")||"{}");
@@ -184,30 +209,52 @@
     function gerarRespostaInteligente(userInput){
         const lower = userInput.toLowerCase();
 
-        // Recupera da memória
-        const mem = tentarRecuperar(lower);
-        if(mem) return mem;
+        // Histórico das últimas 3 perguntas
+        const historicoChaves = Object.keys(memoriaChat);
+        const ultimasPerguntas = historicoChaves.slice(-3);
 
-        // Busca nos JSONs
-        const respostaBase = buscarResposta(userInput);
+        //Tentar recuperar memória exata
+        if(memoriaChat[lower]) return memoriaChat[lower];
 
-        // Se achou, formata com a persona
-        const resposta = solumFormatter.formatResponse(userInput, respostaBase);
+        // Buscar nos dados via Fuse.js
+        const resultados = fuse.search(userInput);
+        let respostaBase = null;
+        let tema = null;
 
-        // Salva na memória
-        registrarPergunta(lower, resposta);
-        return resposta;
+        if(resultados.length > 0){
+            const melhor = resultados[0].item;
+            respostaBase = melhor.resposta;
+            tema = melhor.tema;
+        }
+
+        // Adicionar contexto do histórico
+        let contextoHistorico = "";
+        if(ultimasPerguntas.length > 0){
+            contextoHistorico = "\n🔹 Lembre-se do que conversamos antes:";
+            ultimasPerguntas.forEach(q => {
+                contextoHistorico += `\n- "${q}"`;
+            });
+        }
+
+        // Formatar resposta usando SolumFormatter
+        const respostaFinal = solumFormatter.formatResponse(userInput, respostaBase ? respostaBase + contextoHistorico : null, tema);
+
+        // Salvar na memória
+        registrarPergunta(lower, respostaFinal);
+
+        return respostaFinal;
     }
 
+
     // =======================
-    // 1) Função para esconder/remover o título dinâmico (apenas na 1ª mensagem)
+    // 1) Função para esconder/remover o título dinâmico
     // =======================
     function hideTituloDinamico() {
         if (!tituloDinamico) return;
         if (!tituloDinamico.classList.contains('hidden')) {
             tituloDinamico.classList.add('hidden');
 
-            // remove o elemento ao terminar a animação (mais robusto que setTimeout)
+            // remove o elemento ao terminar a animação
             function onAnimEnd() {
                 tituloDinamico.removeEventListener('animationend', onAnimEnd);
                 if (tituloDinamico.parentNode) tituloDinamico.parentNode.removeChild(tituloDinamico);
@@ -220,6 +267,35 @@
             }, 900);
         }   
     }
+    //função para síntese de voz
+    function falar(texto) {
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(texto);
+            utterance.lang = 'pt-BR'; // garante que fale em português
+            speechSynthesis.speak(utterance);
+        } else {
+            console.warn("Navegador não suporta síntese de voz");
+        }
+    }
+    // Seleciona o botão
+    const btnLimpar = document.getElementById("btnLimpar");
+    
+    btnLimpar.addEventListener("click", () => {
+        // Limpa o conteúdo do chat
+        chatMensagens.innerHTML = "";
+    
+        // Opcional: limpa a memória do chat
+        memoriaChat = {};
+        localStorage.setItem("memoriaChat", JSON.stringify(memoriaChat));
+    
+        // Se quiser, você também pode restaurar o título dinâmico
+        if(tituloDinamico) {
+            tituloDinamico.classList.remove('hidden');
+            if(!document.body.contains(tituloDinamico)) {
+                document.querySelector('main header').appendChild(tituloDinamico);
+            }
+        }
+    });
 
     /* Envio */
     formChat.addEventListener("submit", function(e) {
