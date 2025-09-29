@@ -1,95 +1,119 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
-:root{
+
+:root {
     --cor-verde: #4a5841;
-    --cor-bege: #dbcdac;
+    --cor-bege: #f4f0e3;
+    --cor-destaque: #dbcdac;
     --fonte-main: "Exo 2", sans-serif;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-header {
-    background-color: var(--cor-verde);
-    padding: 1rem;
-    text-align: center;
-}
-#Logo {
-    max-width: 160px;
-    width: 100%;
-}
-#introducao {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
 
-#introducao h1 {
-    flex-basis: 100%;
+body {
     font-family: var(--fonte-main);
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--cor-verde);
-    margin-bottom: 1rem;
-}
-section {
-    margin: 3rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.texto {
-    flex: 1;
-    font-family: var(--fonte-main);
-    font-size: 1.1rem;
     line-height: 1.6;
+    background-color: #fff;
     color: #333;
 }
 
-.imagem, #banner {
-    flex: 1;
-    max-width: 400px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+/* HEADER */
+header {
+    background: var(--cor-verde);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
 }
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+header p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+/* SEÇÕES */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    margin: 3rem 0;
+}
+
 h2 {
-    font-family: var(--fonte-main);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: var(--cor-verde);
     margin-bottom: 1rem;
     border-left: 6px solid var(--cor-verde);
     padding-left: 10px;
 }
-#pag {
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+}
+
+/* RESULTADOS */
+#resultados h3 {
+    background: var(--cor-bege);
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* CARDS DE IMAGENS */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+.card-container img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+.card-container img:hover {
+    transform: scale(1.03);
+}
+
+/* BOTÕES */
+#git a {
     display: inline-block;
-    margin-top: 1rem;
+    margin: 0.5rem;
     padding: 0.8rem 1.5rem;
-    background-color: var(--cor-verde);
+    background: var(--cor-verde);
     color: white;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 8px;
     transition: background 0.3s;
 }
-#pag:hover {
-    background-color: #3a4635;
+#git a:hover {
+    background: #3a4635;
 }
+
+/* FOOTER */
 footer {
-    background-color: var(--cor-verde);
+    background: var(--cor-verde);
     color: white;
     text-align: center;
     padding: 1rem;
-    font-family: var(--fonte-main);
 }
-
 footer a {
-    color: #fff;
+    color: var(--cor-destaque);
+    text-decoration: none;
     font-weight: bold;
+}
+footer a:hover {
     text-decoration: underline;
 }
