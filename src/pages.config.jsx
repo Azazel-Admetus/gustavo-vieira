@@ -47,11 +47,23 @@
  *
  * The mainPage value must match a key in the PAGES object exactly.
  */
+
+// Página principal
 import Home from './pages/Home';
+
+// Páginas de projetos
+import ProjetoCaelum from './pages/ProjetoCaelum';
+import OrdemDaFisica from './pages/OrdemDaFisica';
+import Narrify from './pages/Narrify';
+import Engenium from './pages/Engenium';
 
 
 export const PAGES = {
     "Home": Home,
+    "projeto-caelum": ProjetoCaelum,
+    "ordem-da-fisica": OrdemDaFisica,
+    "narrify": Narrify,
+    "engenium": Engenium,
 }
 
 export const pagesConfig = {
