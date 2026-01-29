@@ -10,17 +10,17 @@ export default function About() {
     {
       icon: GraduationCap,
       title: "Estudante",
-      description: "3º ano do ensino médio na Escola Joaquim de Lima Avelino"
+      description: "Formação concluída na Escola Joaquim de Lima Avelino, com participação ativa em projetos acadêmicos e extracurriculares."
     },
     {
       icon: Briefcase,
       title: "Jovem Aprendiz",
-      description: "Câmara Municipal da Estância Turística de Ouro Preto do Oeste/RO - atuando no setor administrativo"
+      description: "Atuação nas áreas de recepção, administração e Tecnologia da Informação, com contato direto com rotinas institucionais e suporte operacional."
     },
     {
       icon: Heart,
       title: "Voluntário",
-      description: "LyUp Desenvolvimento de Negócios - primeira empresa de treinamentos corporativos personalizados de Rondônia"
+      description: "Atuação como Secretário-Geral, colaborando na estruturação estratégica e no planejamento de crescimento da organização."
     }
   ];
 
@@ -46,9 +46,9 @@ export default function About() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-lg text-slate-300 leading-relaxed mb-12 text-center"
+              className="text-lg text-slate-300 leading-relaxed mb-12 text-justify"
             >
-              Sou estudante do 3º ano do ensino médio na Escola Joaquim de Lima Avelino e atuo como jovem aprendiz na Câmara Municipal da Estância Turística de Ouro Preto do Oeste/RO. Tenho experiência na criação e desenvolvimento de projetos educacionais, tecnológicos e sociais, especialmente no ambiente escolar.
+              Sou formado na Escola Joaquim de Lima Avelino e atuei como jovem aprendiz na Câmara Municipal da Estância Turística de Ouro Preto do Oeste/RO. Ao longo dessa trajetória, adquiri experiência no desenvolvimento e na gestão de projetos educacionais, tecnológicos e sociais, com forte atuação no ambiente escolar e institucional. Tenho interesse especial em iniciativas que unem tecnologia, organização e impacto social.
             </motion.p>
 
             <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -65,7 +65,7 @@ export default function About() {
                         <exp.icon className="w-6 h-6 text-white" />
                       </div>
                       <h3 className="text-lg font-semibold text-white mb-2">{exp.title}</h3>
-                      <p className="text-slate-400 text-sm">{exp.description}</p>
+                      <p className="text-slate-400 text-sm text-center">{exp.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -89,8 +89,8 @@ export default function About() {
                   <p className="text-slate-400">Voluntário</p>
                 </div>
               </div>
-              <p className="text-slate-300">
-                Desenvolvo projetos sociais e tecnológicos na primeira empresa de treinamentos corporativos totalmente personalizados de Rondônia.
+              <p className="text-slate-300 text-justify">
+                Atuo como Secretário-Geral na LyUp Desenvolvimento de Negócios, a primeira empresa de treinamentos corporativos personalizados de Rondônia. Minha atuação envolve o desenvolvimento de projeções estratégicas e o apoio à tomada de decisões voltadas ao crescimento sustentável da empresa. Busco contribuir para a geração de valor real aos clientes, por meio de soluções inovadoras, bem estruturadas e alinhadas às necessidades do mercado.
               </p>
             </motion.div>
           </div>
