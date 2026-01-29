@@ -46,7 +46,7 @@ export default function Hero() {
             </p>
 
             <p className="text-lg text-slate-400 mb-8 max-w-2xl">
-              Desenvolvedor e estrategista de projetos educacionais, tecnológicos e sociais
+              Desenvolvedor e Estrategista de Projetos Educacionais, Tecnológicos e Sociais
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
@@ -60,6 +60,7 @@ export default function Hero() {
                 onClick={() => scrollToSection('contato')}
                 variant="outline"
                 className="border-2 border-amber-500/50 text-amber-400 hover:bg-amber-500/10 px-8 py-6 text-lg rounded-xl"
+               
               >
                 Entrar em Contato
               </Button>
@@ -71,7 +72,7 @@ export default function Hero() {
               transition={{ delay: 0.6 }}
               className="flex gap-4 mt-8 justify-center lg:justify-start"
             >
-              <a href="https://wa.me/5569992226657" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-amber-400 transition-colors">
+              <a href="mailto:gustavodsv7184@gmail.com?subject=Contato pelo site&body=Olá,%20vim%20pelo%20seu%20site" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-amber-400 transition-colors">
                 <Mail className="w-6 h-6" />
               </a>
             </motion.div>
@@ -88,7 +89,7 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-blue-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
               <img
                 src="https://gustavovieira.site/image/Foto%20Gustavo%20de%20Souza%20Vieira%20Perfil.jpeg"
-                alt="Gustavo Vieira"
+                alt="Foto de Gustavo Vieira"
                 className="relative w-64 h-64 lg:w-96 lg:h-96 object-cover rounded-full border-4 border-amber-500/50 shadow-2xl"
               />
             </div>
