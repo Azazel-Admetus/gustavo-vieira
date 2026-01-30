@@ -1,9 +1,24 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Zap, Brain, Rocket, Code, ArrowLeft } from 'lucide-react';
+import { Target, Zap, Brain, Rocket, Code, ArrowLeft, Github, Instagram } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
+import engeniumLogo from "@/assets/projects/engenium-logo.jpeg";
+import { useEffect } from "react";
+import favicon from "@/assets/favicons/engenium.ico";
 
 export default function Engenium() {
+    useEffect(() => {
+    let link = document.querySelector("link[rel='icon']");
+
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+
+    link.type = "image/x-icon";
+    link.href = favicon;
+  }, []);
+
   const navigate = useNavigate();
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -108,10 +123,11 @@ export default function Engenium() {
                 }}
               />
               <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-[#dbcdac] p-2 bg-white shadow-2xl">
-                {/* Placeholder for logo - replace with actual image */}
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#2b3d2f] to-[#4a8f5d] flex items-center justify-center">
-                  <Zap className="w-16 h-16 text-[#dbcdac]" />
-                </div>
+                <img
+                  src={engeniumLogo}
+                  alt="Logo do projeto Engenium"
+                  className="w-full h-full object-contain rounded-full"
+              />
               </div>
             </motion.div>
 

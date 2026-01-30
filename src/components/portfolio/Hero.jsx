@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import profileImage from "@/assets/profile/gustavo.jpeg";
 
 export default function Hero() {
   const scrollToSection = (id) => {
@@ -88,7 +89,7 @@ export default function Hero() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-blue-500 rounded-full blur-2xl opacity-30 animate-pulse"></div>
               <img
-                src="https://gustavovieira.site/image/Foto%20Gustavo%20de%20Souza%20Vieira%20Perfil.jpeg"
+                src={profileImage}
                 alt="Foto de Gustavo Vieira"
                 className="relative w-64 h-64 lg:w-96 lg:h-96 object-cover rounded-full border-4 border-amber-500/50 shadow-2xl"
               />

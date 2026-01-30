@@ -1,9 +1,24 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, FileText, Lightbulb, TrendingUp, ExternalLink, ArrowLeft } from 'lucide-react';
+import { Target, FileText, Lightbulb, TrendingUp, ExternalLink, ArrowLeft, Instagram, Github } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
+import odfLogo from "@/assets/projects/odf-logo.png";
+import { useEffect } from "react";
+import favicon from "@/assets/favicons/odf.ico";
 
 export default function OrdemDaFisica() {
+    useEffect(() => {
+    let link = document.querySelector("link[rel='icon']");
+
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+
+    link.type = "image/x-icon";
+    link.href = favicon;
+  }, []);
+
   const navigate = useNavigate();
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -81,10 +96,11 @@ export default function OrdemDaFisica() {
             >
               <div className="absolute inset-0 bg-white rounded-full blur-2xl opacity-30 animate-pulse" />
               <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white p-2 bg-white shadow-2xl">
-                {/* Placeholder for logo - replace with actual image */}
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#b30000] to-[#e60000] flex items-center justify-center text-4xl font-bold">
-                  🍎
-                </div>
+                <img
+                  src={odfLogo}
+                  alt="Logo do projeto Ordem da Física"
+                  className="w-full h-full object-contain rounded-full"
+                />
               </div>
             </motion.div>
 

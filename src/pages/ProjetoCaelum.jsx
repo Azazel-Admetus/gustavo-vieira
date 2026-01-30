@@ -1,9 +1,24 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Instagram, Target, Users, Cpu, Trophy, TrendingUp, ArrowLeft } from 'lucide-react';
+import { ExternalLink, Target, Users, Cpu, Trophy, TrendingUp, ArrowLeft, Instagram, Github } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
+import caelumLogo from "@/assets/projects/ProjetoCaelumLogo.png";
+import { useEffect } from "react";
+import favicon from "@/assets/favicons/caelum.ico";
 
 export default function ProjetoCaelum() {
+    useEffect(() => {
+    let link = document.querySelector("link[rel='icon']");
+
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+
+    link.type = "image/x-icon";
+    link.href = favicon;
+  }, []);
+
   const navigate = useNavigate();
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -76,10 +91,11 @@ export default function ProjetoCaelum() {
             >
               <div className="absolute inset-0 bg-[#dbcdac] rounded-full blur-xl opacity-20 animate-pulse" />
               <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-[#dbcdac] p-2 bg-white shadow-2xl">
-                {/* Placeholder for logo - replace with actual image */}
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#2b3d2f] to-[#4a8f5d] flex items-center justify-center">
-                  <Cpu className="w-16 h-16 text-[#dbcdac]" />
-                </div>
+                <img
+                  src={caelumLogo}
+                  alt="Logo do Projeto Caelum"
+                  className="w-full h-full object-contain rounded-full"
+                />
               </div>
             </motion.div>
 

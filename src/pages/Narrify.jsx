@@ -1,9 +1,24 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Users, Globe, Sparkles, ArrowLeft } from 'lucide-react';
+import { BookOpen, Users, Globe, Sparkles, ArrowLeft, Instagram, Github } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
+import narrifyLogo from "@/assets/projects/narrify-logo.png";
+import { useEffect } from "react";
+import favicon from "@/assets/favicons/narrify.ico";
 
 export default function Narrify() {
+    useEffect(() => {
+    let link = document.querySelector("link[rel='icon']");
+
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+
+    link.type = "image/x-icon";
+    link.href = favicon;
+  }, []);
+
   const navigate = useNavigate();
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -68,10 +83,11 @@ export default function Narrify() {
             >
               <div className="absolute inset-0 bg-[#dcccb3] rounded-full blur-2xl opacity-40 animate-pulse" />
               <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white p-2 bg-white shadow-2xl">
-                {/* Placeholder for logo - replace with actual image */}
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#002147] to-[#004080] flex items-center justify-center">
-                  <BookOpen className="w-16 h-16 text-[#dcccb3]" />
-                </div>
+                <img
+                  src={narrifyLogo}
+                  alt="Logo do projeto Narrify"
+                  className="w-full h-full object-contain rounded-full"
+                />
               </div>
             </motion.div>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, GraduationCap, Heart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import lyupLogo from "@/assets/projects/LyUp-Logo.png";
 
 export default function About() {
   const inView = true;
@@ -80,7 +81,7 @@ export default function About() {
             >
               <div className="flex items-center gap-4 mb-4">
                 <img 
-                  src="https://gustavovieira.site/image/LyUp-Logo.png" 
+                  src={lyupLogo}
                   alt="LyUp Logo" 
                   className="w-16 h-16 object-contain"
                 />
