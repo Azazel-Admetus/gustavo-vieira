@@ -3,6 +3,10 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { ExternalLink } from 'lucide-react';
 import { Link } from "react-router-dom";
+import projetoCaelumImg from '@/assets/projects/ProjetoCaelumLogo.png';
+import odfImg from '@/assets/projects/odf-logo.png';
+import narrifyImg from '@/assets/projects/narrify-logo.png';
+import engeniumImg from '@/assets/projects/engenium-logo.jpeg';
 
 const MotionLink = motion(Link);
 
@@ -13,28 +17,28 @@ export default function Projects() {
     {
       title: "Projeto Caelum",
       description: "Um robô autônomo e interativo desenvolvido por estudantes, a fim de promover a educação tecnológica e o protagonismo estudantil.",
-      image: "https://gustavovieira.site/image/ProjetoCaelumLogo.png",
+      image: projetoCaelumImg,
       link: "/projeto-caelum",
       color: "from-blue-500/20 to-purple-500/20"
     },
     {
       title: "Ordem da Física",
       description: "Clube de estudos dedicado a ajudar estudantes a se prepararem para o ENEM e vestibulares, tornando a física acessível e divertida.",
-      image: "https://gustavovieira.site/image/OdF-logo.jpeg",
+      image: odfImg,
       link: "/ordem-da-fisica",
       color: "from-amber-500/20 to-orange-500/20"
     },
     {
       title: "Narrify Versos e Prosa",
       description: "Clube do livro dedicado a jovens leitores, promovendo uma cultura literária e criando uma comunidade nacional de leitores.",
-      image: "https://gustavovieira.site/image/narrify-logo.png",
+      image: narrifyImg,
       link: "/narrify",
       color: "from-green-500/20 to-emerald-500/20"
     },
     {
       title: "Engenium",
       description: "Clube de robótica voltado ao desenvolvimento de projetos criativos, estimulando raciocínio lógico e inovação.",
-      image: "https://gustavovieira.site/image/engenium-logo.jpeg",
+      image: engeniumImg,
       link: "/engenium",
       color: "from-red-500/20 to-pink-500/20"
     }
