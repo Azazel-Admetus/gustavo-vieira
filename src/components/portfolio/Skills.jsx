@@ -14,7 +14,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="habilidades" className="py-20 lg:py-32 bg-gradient-to-b from-slate-900 via-blue-950/20 to-slate-900 relative">
+    <section id="habilidades" className="py-20 lg:py-32 bg-gradient-to-b from-slate-900 via-blue-950/20 to-slate-900 relative scroll-mt-28">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

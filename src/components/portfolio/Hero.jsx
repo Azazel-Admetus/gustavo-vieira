@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Mail } from 'lucide-react';
+import { ArrowDown, Mail, Linkedin, Github, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import profileImage from "@/assets/profile/gustavo.jpeg";
 
@@ -8,9 +8,31 @@ export default function Hero() {
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
+  const socialLinks = [
+    {
+      label: 'Email',
+      href: 'mailto:gustavodsv7184@gmail.com?subject=Contato%20pelo%20site&body=Ol%C3%A1,%20vim%20pelo%20seu%20site',
+      icon: Mail
+    },
+    {
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/gustavo-vieira-azazeladmetus',
+      icon: Linkedin
+    },
+    {
+      label: 'GitHub',
+      href: 'https://github.com/Azazel-Admetus',
+      icon: Github
+    },
+    {
+      label: 'Instagram',
+      href: 'https://www.instagram.com/dev_admetus/',
+      icon: Instagram
+    }
+  ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 scroll-mt-28">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-96 h-96 bg-amber-500/10 rounded-full blur-3xl top-20 -left-20 animate-pulse"></div>
@@ -73,9 +95,18 @@ export default function Hero() {
               transition={{ delay: 0.6 }}
               className="flex gap-4 mt-8 justify-center lg:justify-start"
             >
-              <a href="mailto:gustavodsv7184@gmail.com?subject=Contato pelo site&body=Olá,%20vim%20pelo%20seu%20site" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-amber-400 transition-colors">
-                <Mail className="w-6 h-6" />
-              </a>
+              {socialLinks.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="text-slate-400 hover:text-amber-400 transition-colors"
+                >
+                  <Icon className="w-6 h-6" />
+                </a>
+              ))}
             </motion.div>
           </motion.div>
 

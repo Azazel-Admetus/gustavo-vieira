@@ -45,7 +45,7 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projetos" className="py-20 lg:py-32 bg-slate-900 relative">
+    <section id="projetos" className="py-20 lg:py-32 bg-slate-900 relative scroll-mt-28">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-900/5 via-transparent to-transparent"></div>
       
       <div className="container mx-auto px-6 relative z-10">

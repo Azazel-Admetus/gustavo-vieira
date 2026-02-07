@@ -26,7 +26,7 @@ export default function About() {
   ];
 
   return (
-    <section id="sobre" className="py-20 lg:py-32 bg-slate-900 relative">
+    <section id="sobre" className="py-20 lg:py-32 bg-slate-900 relative scroll-mt-28">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-blue-950/30 to-slate-900"></div>
       
       <div className="container mx-auto px-6 relative z-10">

@@ -26,6 +26,9 @@ export default function NavigationTracker() {
         if (pageName) {
             console.log(`User navigated to page: ${pageName}`);
         }
+
+        // Ensure new route opens at the top
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     }, [location, Pages, mainPageKey]);
 
     return null;
