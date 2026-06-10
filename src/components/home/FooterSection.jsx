@@ -3,10 +3,10 @@ import { motion, useInView } from "framer-motion";
 import { Mail, Github, Linkedin, Instagram } from "lucide-react";
 
 const socialLinks = [
-  { icon: Mail, href: "mailto:contato@gustavo.com", label: "Email" },
-  { icon: Github, href: "https://github.com/gustavo", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/gustavo", label: "LinkedIn" },
-  { icon: Instagram, href: "https://instagram.com/gustavo", label: "Instagram" },
+  { icon: Mail, href: "mailto:gustavo@arsfinis.com", label: "Email" },
+  { icon: Github, href: "https://github.com/gustavovieira-arsfinis", label: "GitHub" },
+  { icon: Linkedin, href: "https://linkedin.com/in/gustavo-vieira-arsfinis", label: "LinkedIn" },
+  { icon: Instagram, href: "https://instagram.com/gustavo.arsfinis", label: "Instagram" },
 ];
 
 export default function FooterSection() {
