@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Sparkles } from "lucide-react";
 
@@ -25,21 +24,21 @@ export default function HeroSection() {
 
       {/* Animated ambient orbs */}
       <AnimatedOrb
-        className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-[#1e3a5f]/30 blur-[120px] pointer-events-none"
+        className="absolute top-[-10%] left-[-5%] hidden md:block w-[600px] h-[600px] rounded-full bg-[#1e3a5f]/30 blur-[120px] pointer-events-none"
         delay={0}
       />
       <AnimatedOrb
-        className="absolute bottom-[-15%] right-[-10%] w-[700px] h-[700px] rounded-full bg-[#172554]/40 blur-[140px] pointer-events-none"
+        className="absolute bottom-[-15%] right-[-10%] hidden md:block w-[700px] h-[700px] rounded-full bg-[#172554]/40 blur-[140px] pointer-events-none"
         delay={3}
       />
       <AnimatedOrb
-        className="absolute top-[30%] left-[40%] w-[400px] h-[400px] rounded-full bg-[#f59e0b]/5 blur-[100px] pointer-events-none"
+        className="absolute top-[30%] left-[40%] hidden lg:block w-[400px] h-[400px] rounded-full bg-[#f59e0b]/5 blur-[100px] pointer-events-none"
         delay={1.5}
       />
 
       {/* Fine grid */}
       <div
-        className="absolute inset-0 opacity-[0.035]"
+        className="absolute inset-0 hidden md:block opacity-[0.035]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
@@ -146,11 +145,19 @@ export default function HeroSection() {
               {/* Portrait frame */}
               <div className="relative w-60 h-76 sm:w-72 sm:h-96 lg:w-80 lg:h-[420px] rounded-3xl overflow-hidden border border-white/10"
                 style={{ boxShadow: "0 0 0 1px rgba(245,158,11,0.15), 0 32px 80px rgba(0,0,0,0.5)" }}>
-                <img
-                  src="/assets/images/gustavo.png"
-                  alt="Gustavo"
-                  className="w-full h-full object-cover"
-                />
+                <picture>
+                  <source srcSet="/assets/images/gustavo.webp" type="image/webp" />
+                  <img
+                    src="/assets/images/gustavo.png"
+                    alt="Foto de Gustavo Vieira"
+                    className="w-full h-full object-cover"
+                    width="720"
+                    height="900"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/45 via-transparent to-transparent" />
               </div>
 

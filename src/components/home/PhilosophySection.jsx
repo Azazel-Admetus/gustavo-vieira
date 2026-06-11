@@ -73,7 +73,10 @@ export default function PhilosophySection() {
   const isInView = useInView(headerRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="filosofia" className="py-32 md:py-44 relative">
+    <section
+      id="filosofia"
+      className="[content-visibility:auto] [contain-intrinsic-size:1px_900px] py-32 md:py-44 relative"
+    >
       {/* Section divider */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#f59e0b]/20 to-transparent" />
 

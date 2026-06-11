@@ -8,12 +8,15 @@ export default function AboutSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="sobre" className="py-32 md:py-44 relative overflow-hidden">
+    <section
+      id="sobre"
+      className="[content-visibility:auto] [contain-intrinsic-size:1px_1100px] py-32 md:py-44 relative overflow-hidden"
+    >
       {/* Divider */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#f59e0b]/20 to-transparent" />
 
       {/* Ambient bg accent */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#172554]/40 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden md:block w-[500px] h-[500px] bg-[#172554]/40 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
         {/* Header */}
